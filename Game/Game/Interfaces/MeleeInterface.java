@@ -1,3 +1,9 @@
+package Game.Interfaces;
+
+import Game.Logic.Menu;
+import Game.Objects.Person;
+import Game.Objects.Room;
+
 public interface MeleeInterface {
 
     default void meleeAttack(int damage, Room room, Person enemy) {

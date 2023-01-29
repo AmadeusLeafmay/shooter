@@ -1,3 +1,9 @@
+package Game.Interfaces;
+
+import Game.Logic.Menu;
+import Game.Objects.Person;
+import Game.Objects.Room;
+
 public interface RangeInterface {
     default void rangeAttack(int damage, int[] magazine, Room room, Person gamer, Person enemy) {
         StringBuilder builder = new StringBuilder();

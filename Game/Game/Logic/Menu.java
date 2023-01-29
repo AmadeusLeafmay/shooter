@@ -1,3 +1,11 @@
+package Game.Logic;
+
+import Game.Objects.Person;
+import Game.Objects.Room;
+import Game.Weapon.CombinedWeapons;
+import Game.Weapon.MeleeWeapons;
+import Game.Weapon.RangeWeapons;
+
 import java.util.Scanner;
 
 public class Menu {
@@ -46,13 +54,14 @@ public class Menu {
 
     public static int duelInteraction(Person gamer, Person enemy) {
         System.out.println("Оружие в руках противника:" + getWeaponName(enemy) + "\nЧто будете делать?");
-        String weaponName = gamer.getWeapon().getClass().getName();
-        switch (weaponName) {
-            case "MeleeWeapons" -> System.out.println("1.Бить в ближнем\n2.Бросить оружие в врага\n5.Бежать\n");
-            case "RangeWeapons" -> System.out.println("3.Cтрелять\n4.Перезарядка\n5.Бежать\n");
-            case "CombinedWeapons" ->
-                    System.out.println("1.Бить в ближнем\n2.Бросить оружие в врага\n3.Cтрелять\n4.Перезарядка\n5.Бежать\n");
-            default -> System.out.println("5.Бежать\n");
+        if(gamer.getWeapon() instanceof MeleeWeapons){
+            System.out.println("1.Бить в ближнем\n2.Бросить оружие в врага\n5.Бежать\n");
+        } else if (gamer.getWeapon() instanceof RangeWeapons) {
+            System.out.println("3.Cтрелять\n4.Перезарядка\n5.Бежать\n");
+        } else if (gamer.getWeapon() instanceof CombinedWeapons){
+            System.out.println("1.Бить в ближнем\n2.Бросить оружие в врага\n3.Cтрелять\n4.Перезарядка\n5.Бежать\n");
+        } else {
+            System.out.println("5.Бежать\n");
         }
         return in.nextInt();
     }
@@ -80,44 +89,26 @@ public class Menu {
     }
 
     private static String getWeaponName(Person person) {
-        String name = person.getWeapon().getClass().getName();
-        switch (name) {
-            case "MeleeWeapons" -> {
-                MeleeWeapons meleeWeapon = (MeleeWeapons) person.getWeapon();
-                return meleeWeapon.getName();
-            }
-            case "RangeWeapons" -> {
-                RangeWeapons rangeWeapon = (RangeWeapons) person.getWeapon();
-                return rangeWeapon.getName();
-            }
-            case "CombinedWeapons" -> {
-                CombinedWeapons combinesWeapon = (CombinedWeapons) person.getWeapon();
-                return combinesWeapon.getName();
-            }
-            default -> {
-                return "Никакого";
-            }
+        if(person.getWeapon() instanceof MeleeWeapons){
+            return ((MeleeWeapons) person.getWeapon()).getName();
+        } else if (person.getWeapon() instanceof RangeWeapons){
+            return ((RangeWeapons) person.getWeapon()).getName();
+        } else if (person.getWeapon() instanceof CombinedWeapons){
+            return ((CombinedWeapons) person.getWeapon()).getName();
+        } else {
+            return "Никакого";
         }
     }
 
     public static String getWeaponName(Object weapon) {
-        String name = weapon.getClass().getName();
-        switch (name) {
-            case "MeleeWeapons" -> {
-                MeleeWeapons meleeWeapon = (MeleeWeapons) weapon;
-                return meleeWeapon.getName();
-            }
-            case "RangeWeapons" -> {
-                RangeWeapons rangeWeapon = (RangeWeapons) weapon;
-                return rangeWeapon.getName();
-            }
-            case "CombinedWeapons" -> {
-                CombinedWeapons combinesWeapon = (CombinedWeapons) weapon;
-                return combinesWeapon.getName();
-            }
-            default -> {
-                return "Никакого";
-            }
+        if(weapon instanceof MeleeWeapons){
+            return ((MeleeWeapons) weapon).getName();
+        } else if (weapon instanceof RangeWeapons){
+            return ((RangeWeapons) weapon).getName();
+        } else if (weapon instanceof CombinedWeapons){
+            return ((CombinedWeapons) weapon).getName();
+        } else {
+            return "Никакого";
         }
     }
 

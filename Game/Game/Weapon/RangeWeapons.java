@@ -1,3 +1,7 @@
+package Game.Weapon;
+
+import Game.Interfaces.RangeInterface;
+
 public class RangeWeapons implements RangeInterface {
     private final int damage;
     private final int[] magazine;

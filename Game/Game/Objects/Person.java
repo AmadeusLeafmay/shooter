@@ -1,3 +1,4 @@
+package Game.Objects;
 
 public class Person {
     private int currentHealth;

@@ -1,3 +1,13 @@
+package Game.Logic;
+
+import Game.Objects.Chest;
+import Game.Objects.Person;
+import Game.Objects.Room;
+import Game.Weapon.CombinedWeapons;
+import Game.Weapon.MeleeWeapons;
+import Game.Weapon.RangeWeapons;
+import Game.Weapon.WeaponsSetup;
+
 import java.util.ArrayList;
 
 
@@ -14,8 +24,8 @@ public class GameLoop {
 
     private static void startGame() {
         setupWeapons();
-        Person gamer = new Person(1000, weapons.get(5), weapons.get(0));
-        gamer.setLevel(5);
+        Person gamer = new Person(1000, weapons.get(0), weapons.get(0));
+        gamer.setLevel(1);
         while (!end) {
             Menu.frame();
             if (gamer.getCurrentHealth() < 0) {

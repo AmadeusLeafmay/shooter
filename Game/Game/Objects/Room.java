@@ -1,3 +1,5 @@
+package Game.Objects;
+
 public class Room {
     private int size;
     private boolean chest;

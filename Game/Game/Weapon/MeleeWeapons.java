@@ -1,3 +1,7 @@
+package Game.Weapon;
+
+import Game.Interfaces.MeleeInterface;
+
 public class MeleeWeapons implements MeleeInterface {
     private final int damage;
     String name;

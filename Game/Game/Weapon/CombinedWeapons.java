@@ -1,3 +1,8 @@
+package Game.Weapon;
+
+import Game.Interfaces.MeleeInterface;
+import Game.Interfaces.RangeInterface;
+
 public class CombinedWeapons implements MeleeInterface, RangeInterface {
     private final int meleeDamage;
     private final int rangeDamage;
